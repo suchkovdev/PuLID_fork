@@ -1,3 +1,32 @@
+## 🧠 Using CLI version (`app_flux_fork.py`)
+
+You can now run the PuLID-FLUX model directly from the command line without using the Gradio interface. This is useful for automated scripts or headless environments.
+
+### Example usage
+```bash
+python app_flux_fork.py \
+  --pretrained_model /workspace/models/pulid_flux_v0.9.1.safetensors \
+  --input_image /workspace/images/example_id.jpg \
+  --prompt "portrait, cinematic lighting, ultra-detailed" \
+  --output /workspace/output/result.jpg \
+  --device cuda \
+  --width 896 \
+  --height 1152 \
+  --num_steps 28 \
+  --guidance 4.0
+```
+
+**Arguments:**
+- `--pretrained_model` — path to the PuLID-FLUX `.safetensors` model file
+- `--input_image` — path to the input ID photo (the subject to preserve)
+- `--prompt` — text description for the desired output image
+- `--output` — where to save the generated image
+- `--device` — computation device (`cuda` or `cpu`)
+- `--width`, `--height` — output image size in pixels
+- `--num_steps` — number of denoising steps (default: 28)
+- `--guidance` — classifier-free guidance scale (default: 4.0)
+- (and more advanced options, see `python app_flux_fork.py --help`)
+
 # PuLID (NeurIPS 2024)
 
 ### :open_book: PuLID: Pure and Lightning ID Customization via Contrastive Alignment
